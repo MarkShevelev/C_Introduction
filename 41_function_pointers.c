@@ -409,7 +409,9 @@ void universal_bubble_sort_test() {
  * */
 int int_cmp(void const *lha, void const *rha) {
     int const *int_l = lha, *int_r = rha;
-    return *int_l - *int_r; //если числа равны, разность - ноль, если первое меньше, то разность отрицательна
+    if (*int_l < *int_r) return -1; //если первый раньше
+    if (*int_l > *int_r) return 1;  //если второй раньше
+    return 0;                       //если равны
 }
 #include <stdlib.h> //здесь объявлена функция qsort
 void int_q_sort_test() {
